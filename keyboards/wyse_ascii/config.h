@@ -29,8 +29,8 @@ The bad news is that you need a custom matrix scanner defined in order to use it
 
 Warnings will be encountered on MATRIX_ROWS as there is a mismatch between the ROW pin count
 and the total rows in the MATRIX*/
-//#define MATRIX_ROWS 8 
-//#define MATRIX_COLS 13
+#define MATRIX_ROWS 8 
+#define MATRIX_COLS 13
 
 /*
  * Keyboard Matrix Assignments
