@@ -5,7 +5,7 @@
 #include "util.h"
 #include "matrix.h"
 #include "debounce.h"
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 
 #if (MATRIX_COLS <= 8)
 #    define print_matrix_header()  print("\nr/c 01234567\n")
@@ -171,6 +171,13 @@ void matrix_read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
     current_matrix[current_row] = current_row_value;
 }
 
+// TODO change hardcoded break pin read here
+void matrix_read_break_pin(matrix_row_t current_matrix[]){
+    //dump result to matrix pin F0
+    uint8_t pin_state = readMatrixPin(MATRIX_BREAK_PIN);
+    current_matrix[15] |= pin_state ? 0: MATRIX_ROW_SHIFTER;
+}
+
 void matrix_init(void) {
     // TODO: initialize hardware and global matrix state here
     // initialize matrix state: all keys off
@@ -180,9 +187,14 @@ void matrix_init(void) {
     }
 
     for (uint8_t i = 0; i < MATRIX_COLS; i++){
-        //initialise column pins as input, DO NOT USE 1st line without external pullup resistors 
-		//setPinInput(col_pins[i]);
-        setPinInputHigh(col_pins[i]);
+        //initialise column pins as input, DO NOT USE without external pullup resistors
+		setPinInput(col_pins[i]);
+
+        //break pin gets its own special pin slot
+        setPinInput(MATRIX_BREAK_PIN);
+
+        //use this instead for fujitsu boards without external pullup resistors (unlikely)
+        //setPinInputHigh(col_pins[i]);
     }
 
     // Clear the row selector to INVALID
@@ -203,14 +215,12 @@ uint8_t matrix_scan(void) {
         matrix_read_cols_on_row(curr_matrix, current_row);
     }
 
+    matrix_read_break_pin(curr_matrix);
+
     bool changed = memcmp(raw_matrix, curr_matrix, sizeof(curr_matrix)) != 0;
     if (changed) {
         memcpy(raw_matrix, curr_matrix, sizeof(curr_matrix));
     }
-
-	//matrix debugging for finding the keymap
-    _delay_ms(100);
-    matrix_print();
 
     // Unless hardware debouncing - use the configured debounce routine
     debounce(raw_matrix, matrix, MATRIX_ROWS, changed);
