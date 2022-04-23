@@ -1,5 +1,22 @@
 {
-    "keyboard_name": "fujitsu_n860_2726",
+    "manufacturer": "djask",
+    "keyboard_name": "Fujitsu N86D-2726-R001/03 BUHINMEN",
     "maintainer": "djask",
-    "bootloader": "caterina"
+    "bootloader": "caterina",
+    "diode_direction": "COL2ROW",
+    "features": {
+        "bootmagic": true,
+        "command": false,
+        "console": true,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true
+    },
+    "processor": "atmega32u4",
+    "url": "",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x2726",
+        "vid": "0x2FB2"
+    }
 }

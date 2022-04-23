@@ -21,12 +21,6 @@
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
 
-/* USB Device descriptor parameter */
-#define VENDOR_ID    0x2FB2 //Fujitsu limited
-#define PRODUCT_ID   0x2726
-#define DEVICE_VER   0x0000
-#define MANUFACTURER    Fujitsu Limited
-#define PRODUCT         N860-2726-T002
 
 /* key matrix size */
 
@@ -51,12 +45,12 @@ and the total rows in the MATRIX*/
  *         ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
 */
-#define MATRIX_ROW_SEL_PINS { B1, B2, B3, B7 }
-#define MATRIX_COL_PINS { F4, F5, F6, F7, D0, D1, D2 }
-#define UNUSED_PINS
+#define MATRIX_ROW_SEL_PINS { B6, F7, F6, F5 }
+#define MATRIX_COL_PINS { D0, D1, D2, D3, B4, D7, D6 }
 
-/* COL2ROW or ROW2COL */
-#define DIODE_DIRECTION COL2ROW
+// Break is wired directly to ground, extra input pin can be wired to switch to detect keypress
+#define MATRIX_BREAK_PIN B0
+#define UNUSED_PINS
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
@@ -64,11 +58,11 @@ and the total rows in the MATRIX*/
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 //#define MATRIX_HAS_GHOST
 
-#define LED_KANA_PIN F0
-#define LED_CAPS_LOCK_PIN F1
+#define LED_KANA_PIN B2
+#define LED_CAPS_LOCK_PIN B3
 
 //Using LED above INS key for num lock
-#define LED_NUM_LOCK_PIN B0
+#define LED_NUM_LOCK_PIN B1
 
 #define LED_PIN_ON_STATE 1
 
@@ -77,3 +71,4 @@ and the total rows in the MATRIX*/
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
+#define USB_POLLING_INTERVAL_MS 1
