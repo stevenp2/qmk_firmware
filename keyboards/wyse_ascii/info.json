@@ -2,7 +2,7 @@
     "manufacturer": "djask",
     "keyboard_name": "Wyse ASCII Keyboard",
     "maintainer": "djask",
-    "bootloader": "caterina",
+    "bootloader": "halfkay",
     "diode_direction": "COL2ROW",
     "features": {
         "bootmagic": true,

@@ -1,7 +1,8 @@
 #include "wyse_ascii.h"
 
 enum custom_keycodes {
-    QMK_CLEAR  = SAFE_RANGE,   
+    QMK_CLEAR  = SAFE_RANGE,
+    CSCO_WR
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -10,6 +11,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             SEND_STRING("clear\n");
         } else {
+        }
+        break;
+    case CSCO_WR:
+        if (record->event.pressed) {
+            SEND_STRING("copy running-config startup-config\n");
         }
         break;
     }
@@ -28,10 +34,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
     [1] = LAYOUT(
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                  KC_TRNS, NK_TOGG,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                  QK_BOOT, NK_TOGG,
 
     KC_TRNS,KC_TRNS,KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,                           KC_INS,    KC_TRNS,   KC_TRNS,   QMK_CLEAR, 
-    KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
+    KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, CSCO_WR,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
     KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,         KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
     KC_TRNS, KC_TRNS,          KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_PGUP, KC_TRNS,          KC_TRNS,   KC_TRNS,   KC_TRNS,
     KC_LGUI,                       KC_TRNS,                                                            KC_TRNS,                           KC_TRNS, KC_PGDN, KC_TRNS,          KC_TRNS,   KC_TRNS,              KC_TRNS
