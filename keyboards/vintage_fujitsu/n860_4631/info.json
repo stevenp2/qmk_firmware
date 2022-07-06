@@ -1,6 +1,6 @@
 {
     "manufacturer": "djask",
-    "keyboard_name": "Fujitsu N86D-2726-R001/03 BUHINMEN",
+    "keyboard_name": "Fujitsu N86D-4631-R101/01 HANDA",
     "maintainer": "djask",
     "bootloader": "stm32duino",
     "diode_direction": "COL2ROW",
@@ -16,7 +16,7 @@
     "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x2726",
+        "pid": "0x4631",
         "vid": "0x2FB2"
     }
 }
