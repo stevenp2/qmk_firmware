@@ -10,9 +10,9 @@
         "console": true,
         "extrakey": true,
         "mousekey": true,
-        "nkro": true
+        "nkro": false
     },
-    "processor": "atmega32u4",
+    "processor": "STM32F103",
     "url": "",
     "usb": {
         "device_version": "1.0.0",
