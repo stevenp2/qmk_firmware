@@ -31,7 +31,7 @@ The bad news is that you need a custom matrix scanner defined in order to use it
 Warnings will be encountered on MATRIX_ROWS as there is a mismatch between the ROW pin count
 and the total rows in the MATRIX*/
 #define MATRIX_ROWS 16 //row selector matrix
-#define MATRIX_COLS 7
+#define MATRIX_COLS 8
 
 #define MATRIX_IO_DELAY 5
 
@@ -60,14 +60,6 @@ and the total rows in the MATRIX*/
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 //#define MATRIX_HAS_GHOST
-
-#define LED_KANA_PIN B2
-#define LED_CAPS_LOCK_PIN B3
-
-//Using LED above INS key for num lock
-#define LED_NUM_LOCK_PIN B1
-
-#define LED_PIN_ON_STATE 1
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE

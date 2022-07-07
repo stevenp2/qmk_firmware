@@ -28,7 +28,7 @@
 // this keyboard uses a BCD to select row to read value, the column pins are actually input pins, pulled high on default
 static const pin_t row_selector[4] = MATRIX_ROW_SEL_PINS;
 static const pin_t col_selector[3] = MATRIX_COL_SEL_PINS;
-static const pin_t col_pin = MATRIX_COL_PIN
+static const pin_t col_pin = MATRIX_COL_PIN;
 
 /* matrix state(1:on, 0:off) */
 static matrix_row_t raw_matrix[MATRIX_ROWS]; //raw values
@@ -186,13 +186,6 @@ void matrix_read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
     current_matrix[current_row] = current_row_value;
 }
 
-// TODO change hardcoded break pin read here
-void matrix_read_break_pin(matrix_row_t current_matrix[]){
-    //dump result to matrix pin F0
-    uint8_t pin_state = readMatrixPin(MATRIX_BREAK_PIN);
-    current_matrix[15] |= pin_state ? 0: MATRIX_ROW_SHIFTER;
-}
-
 void matrix_init(void) {
     // TODO: initialize hardware and global matrix state here
     // initialize matrix state: all keys off
@@ -201,13 +194,7 @@ void matrix_init(void) {
         matrix[i]     = 0;
     }
 
-    for (uint8_t i = 0; i < MATRIX_COLS; i++){
-        //initialise column pins as input, DO NOT USE without external pullup resistors
-		setPinInput(col_pins[i]);
-
-        //For fujitsu boards without external pullup resistors (unlikely)
-        //setPinInputHigh(col_pins[i]);
-    }
+    setPinInput(col_pin);
 
     // Clear the row selector to INVALID
     unselect_row();

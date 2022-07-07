@@ -45,6 +45,7 @@ and the total rows in the MATRIX*/
  *         ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
 */
+
 #define MATRIX_ROW_SEL_PINS { A3, A2, A1, A0 }
 #define MATRIX_COL_SEL_PINS { C15, C14, C13 }
 
