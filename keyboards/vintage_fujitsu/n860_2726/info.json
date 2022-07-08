@@ -2,7 +2,7 @@
     "manufacturer": "djask",
     "keyboard_name": "Fujitsu N86D-2726-R001/03 BUHINMEN",
     "maintainer": "djask",
-    "bootloader": "stm32duino",
+    "bootloader": "halfkay",
     "diode_direction": "COL2ROW",
     "features": {
         "bootmagic": true,

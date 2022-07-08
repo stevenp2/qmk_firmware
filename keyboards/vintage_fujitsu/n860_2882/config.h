@@ -45,11 +45,11 @@ and the total rows in the MATRIX*/
  *         ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
 */
-#define MATRIX_ROW_SEL_PINS { B5, B6, F7, F6 }
-#define MATRIX_COL_SEL_PINS { F5, F4, F1 }
+#define MATRIX_ROW_SEL_PINS { B7, D0, D1, D2 }
+#define MATRIX_COL_SEL_PINS { D3, C6, C7 }
 
 // Only one COL pin, col is determined by demux chip on board.
-#define MATRIX_COL_PIN C7
+#define MATRIX_COL_PIN B3
 
 // Break is wired directly to ground, extra input pin can be wired to switch to detect keypress
 // #define MATRIX_BREAK_PIN B0

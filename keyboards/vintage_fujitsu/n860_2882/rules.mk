@@ -1,5 +1,5 @@
 # This file intentionally left blank
 CUSTOM_MATRIX=yes
-BOOTLOADER = halfkay
+MOUSEKEYS_ENABLE=yes
 
 SRC += matrix.c
