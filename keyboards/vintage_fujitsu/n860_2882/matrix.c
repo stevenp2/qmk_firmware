@@ -150,8 +150,9 @@ static void unselect_row(void){
 static bool select_col(uint8_t line) {
   int mask = 1;
   for (uint8_t i = 0; i < 3; i++) {
-    (line & mask) ? setPinOutput_writeHigh(col_selector[i])
-    : setPinOutput_writeLow(col_selector[i]);
+    // (line & mask) ? setPinOutput_writeHigh(col_selector[i])
+    // : setPinOutput_writeLow(col_selector[i]);
+    if (! (line & mask)) setPinOutput_writeLow(col_selector[i]);
     mask <<= 1;
   }
 
