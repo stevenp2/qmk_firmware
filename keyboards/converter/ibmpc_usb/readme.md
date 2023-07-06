@@ -1,6 +1,7 @@
 # Keyboard converter for IBM terminal keyboard
 
-This is a port of TMK's converter/converter to QMK. The ibmpc.c and ibmpc.h code has been moved from tmk_core/protocol in TMK to the keyboard directory in this version.
+This is a port of TMK's converter/converter to QMK. The `ibmpc.c` and `ibmpc.h` code has been moved from tmk_core/protocol in TMK to the keyboard directory in this version.
+Furthermore, `ibmpc_usb.hpp` has been converted to `ibmpc_matrix.h` and `ibmpc_usb.cpp` to `matrix.c` (using only `C` code -sad face-)
 
 The converter translates IBM PC keyboard protocols into USB HID to use classic keyboards on modern computer with USB ports.
 This can supports IBM XT and AT protocols and recognize scan code set 1, 2 and 3 with just one firmware.
@@ -15,7 +16,7 @@ Test in the field and feedback from users are needed to improve firmware code.
 
 Discuss in this thread or on github. https://geekhack.org/index.php?topic=103648.0
 
-You can buy prebuilt TMK converter to support this project here. https://geekhack.org/index.php?topic=72052.0
+You can buy prebuilt TMK converter to support the original project here. https://geekhack.org/index.php?topic=72052.0
 
 Keyboard supported
 ------------------
