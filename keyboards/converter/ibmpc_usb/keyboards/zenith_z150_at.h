@@ -36,7 +36,7 @@ Raw scan codes
     K04, K0C,   K0D,  K15, K1D, K24, K2D, K2C, K35, K3C, K43, K44, K4D, K54, K5B,       K6C, K75, K7D, K7B, \
     K03, K0B,   K14,   K1C, K1B, K23, K2B, K34, K33, K3B, K42, K4B, K4C, K52,     K5A,  K6B, K73, K74, K7C, \
     K02, K0A,   K12,    K1A, K22, K21, K2A, K32, K31, K3A, K41, K49, K4A,   K59,  K5D,  K69, K72, K7A,      \
-    K01, K09,   K11,   K0E,                   K29,                          K58,     K70,     K71,     K79
+    K01, K09,   K11,   K0E,                   K29,                          K58,     K70,     K71,     K79  \
 ) { \
 /* 0 */ { XXX, K01, K02, K03, K04, K05, K06, XXX, XXX, K09, K0A, K0B, K0C, K0D, K0E, XXX }, \
 /* 1 */ { XXX, K11, K12, XXX, K14, K15, K16, XXX, XXX, XXX, K1A, K1B, K1C, K1D, K1E, XXX }, \
