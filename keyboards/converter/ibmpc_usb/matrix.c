@@ -29,7 +29,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "ibmpc_matrix.h"
 
 extern IBMPC_t interface0;
+#if defined(IBMPC_CLOCK_BIT1) && defined(IBMPC_DATA_BIT1)
 extern IBMPC_t interface1;
+#endif
 
 // Converter
 IBMPCConverter_t converter0;
