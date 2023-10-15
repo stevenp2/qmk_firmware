@@ -5,8 +5,9 @@ void led_init_ports(void) {
     setPinOutput(LED_CAPS_LOCK_PIN);
     setPinOutput(LED_SCROLL_LOCK_PIN);
 
-    writePinLow(LED_CAPS_LOCK_PIN);
-    // writePinLow(LED_SCROLL_LOCK_PIN);
+    writePinHigh(LED_CAPS_LOCK_PIN);
+    writePinHigh(LED_SCROLL_LOCK_PIN);
+    writePinHigh(LED_NUM_LOCK_PIN);
 }
 
 void matrix_init_kb(void) {
@@ -20,9 +21,17 @@ void led_update_ports(led_t led_state) {
         writePinHigh(LED_CAPS_LOCK_PIN);
     }
 
-    // if (led_state.scroll_lock) {
-    //     writePinLow(LED_SCROLL_LOCK_PIN);
-    // } else {
-    //     writePinHigh(LED_SCROLL_LOCK_PIN);
-    // }
+#ifdef DEFAULT_MAP
+    if (led_state.scroll_lock) {
+        writePinLow(LED_SCROLL_LOCK_PIN);
+    } else {
+        writePinHigh(LED_SCROLL_LOCK_PIN);
+    }
+
+    if (led_state.num_lock) {
+        writePinLow(LED_NUM_LOCK_PIN);
+    } else {
+        writePinHigh(LED_NUM_LOCK_PIN);
+    }
+#endif
 }
